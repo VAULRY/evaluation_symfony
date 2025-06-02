@@ -23,7 +23,9 @@
                 <td>{{ task.title }}</td>
                 <td>{{ task.description }}</td>
                 <td>{{ task.status }}</td>
-                <td>{{ task.createdAt ? task.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                {# <td>{{ task.createdAt ? task.createdAt|date('Y-m-d H:i:s') : '' }}</td> #}
+                <td>{{ task.createdAt ? task.createdAt|date('d F Y') : '' }}</td>
+
                 <td>
                     <a href="{{ path('app_task_show', {'id': task.id}) }}">Voir</a>
                     <a href="{{ path('app_task_edit', {'id': task.id}) }}">Modifier</a>
