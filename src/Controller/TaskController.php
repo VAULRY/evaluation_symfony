@@ -29,7 +29,7 @@ class TaskController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
     $task = new Task();
-    $form = $this->createForm(TaskForm::class, $task);
+    $form = $this->createForm(TaskType::class, $task);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
     $entityManager->persist($task);
