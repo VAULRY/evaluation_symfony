@@ -12,17 +12,16 @@ class TaskType extends AbstractType
 public function buildForm(FormBuilderInterface $builder, array $options):void
 { $builder ->add('title', TextType::class, [
 'label'=>'Titre','attr'=> ['placeholder'=>'Saisir le titre','maxlength'=>100],'constraints'
-=> [new NotBlank(['message'
-=>'Le Titre est obligatoire'
-]),
-new Length(['max'=>100,'maxMessage'=>'Le titre ne peut dépasser {{ limit }} caractères']) ] ]) 
+=> [new NotBlank(['message'=>'Le Titre est obligatoire']),
+new Length(['min'=>5, 'max'=>255,'maxMessage'=>'Le titre ne peut dépasser {{ limit }} caractères']) ] ]) 
 
 
 ->add('description', TextType::class, ['label'=>'Description','attr'=> ['placeholder'=>'Saisir la description','maxlength'=>1000,],'constraints'
-=> [new NotBlank(['message'=>'La description est obligatoire']),new Length(['max'=>100,'maxMessage'=>'La dexcription ne peut dépasser {{ limit }} caractères']) ] ]) 
+=> [new NotBlank(['message'=>'La description est obligatoire']),
+new Length(['max'=>1000,'maxMessage'=>'La dexcription ne peut dépasser {{ limit }} caractères']) ] ]) 
 
 
-->add('status', TextType::class, ['label'=>'Description','attr'=> ['placeholder'=>'Saisir la description','maxlength'=>100, ]]);
+->add('status', TextType::class, ['label'=>'Description','attr'=> ['placeholder'=>'Saisir la description','maxlength'=>50, ]]);
 
 } 
 public function configureOptions(OptionsResolver $resolver):void
