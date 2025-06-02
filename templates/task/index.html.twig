@@ -13,6 +13,7 @@
                 <th>Description</th>
                 <th>Status</th>
                 <th>Date</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -21,10 +22,11 @@
                 <td>{{ task.id }}</td>
                 <td>{{ task.title }}</td>
                 <td>{{ task.description }}</td>
+                <td>{{ task.status }}</td>
                 <td>{{ task.createdAt ? task.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_task_show', {'id': task.id}) }}">show</a>
-                    <a href="{{ path('app_task_edit', {'id': task.id}) }}">edit</a>
+                    <a href="{{ path('app_task_show', {'id': task.id}) }}">Voir</a>
+                    <a href="{{ path('app_task_edit', {'id': task.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -35,6 +37,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_task_new') }}">Create new</a>
+    <a href="{{ path('app_task_new') }}">Créer un nouveau Task</a>
 {% endblock %}
 
